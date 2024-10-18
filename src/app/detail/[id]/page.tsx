@@ -1,12 +1,14 @@
-'use client'
-
 import { supabase } from "@/lib/supabaseClient";
-import { useParams, useRouter } from "next/navigation";
+import BackButton from "./backBtn";
 
-export default async function Layout() {
-    const router = useRouter();
-    const params = useParams();
-    const id = params.id;
+interface DetailProps {
+    params: {
+        id: string;
+    }
+}
+
+export default async function Detail(props: DetailProps) {
+    const id = props.params.id;
     const { data: post } = await supabase
         .from('post')
         .select("*")
@@ -23,9 +25,7 @@ export default async function Layout() {
                         <p>{post.content}</p>
                     </div>
                     <div className="card-actions justify-end mt-4">
-                        <button className="btn btn-primary" onClick={() => {
-                            router.back();
-                        }}>목록</button>
+                    <BackButton/>
                     </div>
                 </div>
             </div>
