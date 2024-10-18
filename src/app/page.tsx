@@ -2,7 +2,10 @@ import { supabase } from "@/lib/supabaseClient";
 import Link from "next/link";
 
 export default async function Home() {
-    const { data: posts } = await supabase.from('post').select('*');
+    const { data: posts } = await supabase
+        .from('post')
+        .select('*')
+        .order('id', { ascending: false });
 
     return (
         <div className="container mx-auto p-4">
