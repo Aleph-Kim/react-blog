@@ -1,6 +1,8 @@
 import { supabase } from "@/lib/supabaseClient";
 import Link from "next/link";
 
+export const fetchCache = 'force-no-store'
+
 export default async function Home() {
     const { data: posts } = await supabase
         .from('post')
