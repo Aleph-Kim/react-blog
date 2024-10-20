@@ -1,6 +1,9 @@
 import { supabase } from "@/lib/supabaseClient";
 import MainButton from "./mainBtn";
 import DeleteButton from "./deleteBtn";
+import UpdateButton from "./updateBtn";
+
+export const fetchCache = 'force-no-store'
 
 interface DetailProps {
     params: {
@@ -26,6 +29,7 @@ export default async function Detail(props: DetailProps) {
                         <p>{post.content}</p>
                     </div>
                     <div className="card-actions justify-end mt-4">
+                        <UpdateButton postId={id} />
                         <DeleteButton postId={id} />
                         <MainButton />
                     </div>
