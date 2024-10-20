@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabaseClient";
-import BackButton from "./backBtn";
+import MainButton from "./mainBtn";
 
 interface DetailProps {
     params: {
@@ -25,7 +25,7 @@ export default async function Detail(props: DetailProps) {
                         <p>{post.content}</p>
                     </div>
                     <div className="card-actions justify-end mt-4">
-                    <BackButton/>
+                    <MainButton/>
                     </div>
                 </div>
             </div>
